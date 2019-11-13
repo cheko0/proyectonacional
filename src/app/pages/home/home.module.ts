@@ -9,8 +9,47 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
+    path: 'tabs',
+    component: HomePage,
+    children: [
+      {
+        path: 'my-projects',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../my-projects/my-projects.module').then(m => m.MyProjectsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'projects',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'tabs/my-projects',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
     path: '',
-    component: HomePage
+    redirectTo:'tabs/my-projects',
+    pathMatch: 'full'
   }
 ];
 
@@ -23,4 +62,4 @@ const routes: Routes = [
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

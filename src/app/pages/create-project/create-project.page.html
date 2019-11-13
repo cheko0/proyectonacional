@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar proyecto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-form">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="registerFirstForm">
+        <form [formGroup]="registerFirstForm">
+          <ng-template matStepLabel></ng-template>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <mat-form-field style="width: 100%;">
+                  <input formControlName="project_name" matInput type="text" placeholder="Nombre de proyecto">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                  <mat-label>Categoría</mat-label>
+                  <mat-select>
+                    <mat-option [value]="software">
+                      Software
+                    </mat-option>
+                    <mat-option>
+                      Social
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                  <textarea matInput id="" cols="30" rows="5"></textarea>
+                </mat-form-field>
+                <ion-button (click)="getImages()">
+                  Agregar imagen
+                </ion-button>
+                <div>
+                  <button mat-button matStepperNext>
+                    Siguiente
+                  </button>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="registerSecondForm">
+        <form [formGroup]="registerSecondForm">
+          <ng-template matStepLabel></ng-template>
+          <div formArrayName="team">
+            <button mat-button (click)="addIntegrationForm()">Agregar participante</button>
+            <ion-card *ngFor="let person of team.controls; let i = index" style="padding: 5px;">
+              <div class="card-title">Participante</div>
+              <div [formGroupName]="i">
+                <mat-form-field style="width: 100%;">
+                  <input matInput type="text" formControlName="name" placeholder="Nombre de participante">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                  <input matInput type="text" formControlName="email" placeholder="Correo eletronico">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                  <input matInput type="number" formControlName="phone" placeholder="2711228475" minlength="10" maxlength="10">
+                </mat-form-field>
+              </div>
+            </ion-card>
+          </div>
+          <div>
+            <ion-button (click)="addIntegrationForm()">
+              <ion-icon name="add" ios="ios-add">
+              </ion-icon>
+            </ion-button>
+            <button mat-button matStepperPrevious>
+              Atras
+            </button>
+            <button mat-button matStepperNext [disabled]="validToNext()">
+              Siguiente
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="registerThirdForm">
+        <form [formGroup]="registerThirdForm">
+          <ng-template matStepLabel></ng-template>
+          <mat-form-field style="width: 100%;">
+            <textarea matInput placeholder="Plan de negocio" cols="30" rows="5" type="text"
+              formControlName="bussiness_plan"></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>
+              Atras
+            </button>
+            <button mat-button matStepperNext>
+              Siguiente
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step (stepControl)="registerFourForm">
+        <form [formGroup]="registerFourForm">
+          <div formArrayName="fragments">
+            <button (click)="addFragmentForm()">Agregar fragmento</button>
+            <div *ngFor="let fragment of fragments.controls; let i = index;">
+              <div [formGroupName]="i">
+                <mat-form-field style="width: 100%">
+                  <input matInput type="text" placeholder="Fragmento...">
+                </mat-form-field>
+
+                <div>
+                  <button (click)="addKeystoneForm(i)">Agregar Keystone</button>
+                  <div formArrayName="keystones" *ngFor="let keystone of fragments.controls[i].get('keystones').controls; let j=index">
+                    <!-- <div > -->
+                    <div [formGroupName]="j">
+                      <mat-form-field style="width: 100%;">
+                        <input matInput type="text" placeholder="keystone" formControlName="keystone_name">
+                      </mat-form-field>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </div>
+</ion-content>
