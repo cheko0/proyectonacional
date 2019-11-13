@@ -19,10 +19,10 @@
         <ion-input type="text" [formControl]="emailFormControlLogin" title="Invalid email address"></ion-input>
       </ion-item>
       <mat-error *ngIf="emailFormControlLogin.hasError('email') && !emailFormControlLogin.hasError('required')">
-        Please enter a valid email address.
+        Ingresa una dirección de correo valida.
     </mat-error>
     <mat-error *ngIf="emailFormControlLogin.hasError('required')">
-        Email is required.
+        El correo es requerido.
     </mat-error>
       <div class="button-send-email">
         <ion-button color="cancel" [routerLink]="['/login']" (click)="clear()">Regresar</ion-button>

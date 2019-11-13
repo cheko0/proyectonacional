@@ -9,51 +9,48 @@
 
 <ion-content>
   <div class="content-form-register">
+    <ion-avatar (click)="selectImage(1)">
+      <img [src]='base64Image'>
+    </ion-avatar>
+
+
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">Nombre* </ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Teléfono</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Edad</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-    <ion-list>
-      <ion-radio-group >
-        <ion-list-header>
-          <ion-label>Sexo</ion-label>
-        </ion-list-header>
-        <ion-item>
-          <ion-label>Hombre</ion-label>
-          <ion-radio slot="start" color="tertiary" value="Hombre" checked></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Mujer</ion-label>
-          <ion-radio slot="start" color="tertiary" value="Mujer"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-    </ion-list>
-    <ion-item>
-      <ion-label position="floating">Lugar</ion-label>
+      <ion-label position="floating">Apellidos* </ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-label>Fecha de nacimiento* </ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Curp* </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="absolute" (click)="selectImage(2)">INE* </ion-label>
+    </ion-item>
+    <div class="content-img-register" *ngIf="ine">
+      <ion-img class="img-ine" [src]="ine"></ion-img>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Email* </ion-label>
       <ion-input type="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
+      <ion-label position="floating">Contraseña* </ion-label>
       <ion-input type="password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Confirmar contraseña</ion-label>
+      <ion-label position="floating">Confirmar contraseña* </ion-label>
       <ion-input type="password"></ion-input>
     </ion-item>
+
     <div class="buttons-form">
-      <ion-button color="cancel" [routerLink]="['/login']" (click)="clear()" >Cancelar</ion-button>
+      <ion-button color="cancel" [routerLink]="['/login']" (click)="clear()">Cancelar</ion-button>
       <ion-button expand="block">Aceptar</ion-button>
     </div>
   </div>
