@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { MatSelectModule } from '@angular/material/select';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +34,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatExpansionModule,
     MatSelectModule,
     IonicModule,
     MatButtonModule,

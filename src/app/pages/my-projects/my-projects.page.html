@@ -9,11 +9,11 @@
     <ion-row class="row-projects">
       <ion-col class="col-projects">
         <div class="container-my-projects">
-          <div *ngIf="my_projects.lenght === 0" class="no-projects">
+          <div *ngIf="my_projects.length === 0" class="no-projects">
             <h2>No existen proyectos aún</h2>
           </div>
-          <div class="card-background-page">
-            <ion-card>
+          <div *ngIf="my_projects.length > 0" class="card-background-page">
+            <ion-card (click)="navigateToKeystones()">
               <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/card-saopaolo.png">
               <div class="card-title">Project 1</div>
             </ion-card>

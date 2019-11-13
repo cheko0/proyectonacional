@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MyProjectsPage implements OnInit {
 
-  my_projects: any[] = ["item"];
+  my_projects: any[] = ['oli'];
 
   constructor(private router: Router) { }
 
@@ -17,6 +17,10 @@ export class MyProjectsPage implements OnInit {
 
   createProject(){
     this.router.navigateByUrl('/create-project');
+  }
+
+  navigateToKeystones(){
+    this.router.navigateByUrl('/keystones');
   }
 
 }

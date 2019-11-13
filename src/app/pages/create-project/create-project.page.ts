@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @Component({
@@ -11,8 +11,12 @@ export class CreateProjectPage implements OnInit {
 
   imageResponse: any;
 
+  keystones: string[] = ['Keystone 1', 'Keystone 2', 'Keystone 3', 'Keystone 4', 'Keystone 5'];
+
   options: any;
-  
+
+  addIntegrationValid: boolean = true;
+
   registerFirstForm: FormGroup;
 
   registerSecondForm: FormGroup;
@@ -26,14 +30,15 @@ export class CreateProjectPage implements OnInit {
 
   ngOnInit() {
     this.registerFirstForm = this.fb.group({
-      project_name: [''],
-      category: [''],
-      description: ['']
+      project_name: ['', Validators.required],
+      category: ['', Validators.required],
+      description: ['', Validators.required],
+      bussiness_plan: ['', Validators.required]
     });
 
     this.registerSecondForm = this.fb.group({
       team: this.fb.array([
-        // this.createIntegrationForm()
+        this.createIntegrationForm()
       ])
     });
 
@@ -48,7 +53,7 @@ export class CreateProjectPage implements OnInit {
     })
   }
 
-  getImages(){
+  getImages() {
     this.options = {
       maximumImagesCount: 3,
       width: 200,
@@ -59,38 +64,41 @@ export class CreateProjectPage implements OnInit {
 
     this.imageResponse = [];
     this.imagesPicker.getPictures(this.options).then(results => {
-      for(let i = 0; i < results.length; i++){
-        this.imageResponse.push('data:image/jpeg;base64,'+results[i])
+      for (let i = 0; i < results.length; i++) {
+        this.imageResponse.push('data:image/jpeg;base64,' + results[i])
       }
     }, err => console.log(err));
   }
 
   createIntegrationForm(): FormGroup {
     return this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
       // photo: [''],
-      email: [''],
-      phone: ['']
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required]
     });
   }
 
-  createFragementForm(): FormGroup{
+  createFragementForm(): FormGroup {
     return this.fb.group({
-      fragment_name: [''],
-      keystones: this.fb.array([])   
+      fragment_name: ['', Validators.required],
+      keystones: this.fb.array([])
     })
   }
 
   createkeystoneForm(): FormGroup {
     return this.fb.group({
-      keystone_name: [''],
-      price: ['']
+      keystone_name: ['', Validators.required],
+      price: ['', Validators.required]
     })
   }
 
 
-  addIntegrationForm(){
-    this.team.push(this.createIntegrationForm());
+  addIntegrationForm() {
+    if (this.team.length >= 1 && this.team.length < 5)
+      this.team.push(this.createIntegrationForm());
+    else
+      this.addIntegrationValid = false;
   }
 
   addFragmentForm() {
@@ -101,20 +109,21 @@ export class CreateProjectPage implements OnInit {
     (<FormArray>this.fragments.controls[i].get('keystones')).push(this.createkeystoneForm())
   }
 
-  validToNext(): boolean{
-    return this.team.length >= 1 && this.team.length <=5;
+  validToNext(): boolean {
+    console.log('Valida...')
+    return this.team.length >= 1 && this.team.length < 6;
   }
 
-  get team():FormArray{
+  get team(): FormArray {
     return this.registerSecondForm.get('team') as FormArray;
   }
 
-  get fragments(): FormArray{
+  get fragments(): FormArray {
     return this.registerFourForm.get('fragments') as FormArray;
   }
-  
+
   // get keystones(): FormArray {
-    
+
   // }
 
 }
