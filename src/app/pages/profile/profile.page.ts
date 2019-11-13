@@ -28,7 +28,7 @@ export class ProfilePage implements OnInit {
   saveparams() {
     console.log('prueba');
     this.userService.updateProfile(this.idUser, this.data).subscribe((res) => {
-      console.log(res);
+      alert("Datos guardados");
     })
   }
 
@@ -39,9 +39,4 @@ export class ProfilePage implements OnInit {
       console.log(this.data);
     })
   }
-
-  click(){
-    console.log(".....");
-  }
-
 }

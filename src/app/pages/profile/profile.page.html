@@ -38,9 +38,9 @@
         <ion-label position="relative">email: </ion-label>
         <ion-input [value]="data.email" [(ngModel)]="data.email"></ion-input>
       </ion-item>
-      <div class="buttons-profile" style="z-index: 10000; position: absolute;">
-        <ion-button style="z-index: 10000;" (click)="resetParams()" color="cancel">cancelar</ion-button>
-        <ion-button style="z-index: 10000;" (click)="saveparams()" color="primary">Guardar</ion-button>
+      <div class="buttons-profile" >
+        <ion-button (click)="resetParams()" color="cancel">cancelar</ion-button>
+        <ion-button (click)="saveparams()" color="primary">Guardar</ion-button>
       </div>
     </div>
   </div>
