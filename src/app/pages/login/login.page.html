@@ -21,7 +21,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="text" [(ngModel)]="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
         </ion-item>
         <div style="text-align-last: center; padding: 20px;">
           <ion-button expand="block" (click)="login()">Iniciar sesión</ion-button>
@@ -30,7 +30,7 @@
           <ion-grid>
             <ion-row style="width: 106%">
               <ion-col>
-                <a [routerLink]="['/select-rol']">Registrarse</a>
+                <a [routerLink]="['/register']">Registrarse</a>
               </ion-col>
               <ion-col>
                 <a [routerLink]="['/forget-pass']">¿Ólvide mi contraseña?</a>

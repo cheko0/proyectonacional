@@ -13,7 +13,13 @@ import { UserService } from '../../services/user.service';
 })
 export class RegisterPage implements OnInit {
 
-  base64Image:any="../../../assets/profile.svg";
+  constructor(
+    private camera: Camera,
+    public actionSheetController: ActionSheetController,
+    private file: File,
+    private userService: UserService
+  ) { }
+
   ine:string;
   reader:Blob;
   email:string;
@@ -23,19 +29,14 @@ export class RegisterPage implements OnInit {
   date:string;
   curp:string;
   password:string;
-
-  constructor(
-    private camera: Camera,
-    public actionSheetController: ActionSheetController,
-    private file: File,
-    private userService: UserService
-  ) { }
+  base64Image:any;
 
   ngOnInit() {
+    this.base64Image="../../../assets/profile.svg";
   }
 
   clear() {
-    this.base64Image=null;
+    this.base64Image="../../../assets/profile.svg";
     this.ine=null;
   }
 

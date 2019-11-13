@@ -20,7 +20,8 @@ export class LoginPage {
     this.userService.login({email:this.email,password:this.password}).subscribe((access:IAccess)=>{
       console.log("ACCESO: ",access);
       if(access.id){
-        this.router.navigateByUrl("/home");
+        localStorage.setItem('uid',access.id)
+        this.router.navigateByUrl(`/home`);
       }else{
         console.log("no se pudo hacer login");
       }

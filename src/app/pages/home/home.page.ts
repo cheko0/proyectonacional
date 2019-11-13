@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+
+
+  constructor() { 
+    let id=localStorage.getItem('uid')
+    console.log(id)
+  }
 
   ngOnInit() {
+
   }
 
 }
