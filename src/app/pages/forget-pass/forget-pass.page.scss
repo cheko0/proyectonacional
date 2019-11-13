@@ -1,0 +1,26 @@
+.content-forget-password{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40%;
+    .error-message{
+        text-align: center;
+        font-size: 10px;
+        color: #e75252;
+    }
+}
+
+.text-forget{
+    padding: 15px;
+    text-align: center;
+}
+
+.form-email{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    .button-send-email{
+        padding-top: 20px;
+        align-self: center;
+    }
+}

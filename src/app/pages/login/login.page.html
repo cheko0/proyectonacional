@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-title>Recorridos orizaba</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-img-logo">
+    <ion-img class="img-logo" src="../../assets/LogoLogin.jpg"></ion-img>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="title-login">Inicio de sesión</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="md-form-login">
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <div style="text-align-last: center; padding: 20px;">
+          <ion-button expand="block">Iniciar sesión</ion-button>
+        </div>
+        <div>
+          <ion-grid>
+            <ion-row style="width: 106%">
+              <ion-col>
+                <a [routerLink]="['/register']">Registrarse</a>
+              </ion-col>
+              <ion-col>
+                <a [routerLink]="['/forget-pass']">¿Ólvide mi contraseña?</a>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

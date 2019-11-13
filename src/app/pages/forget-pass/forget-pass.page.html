@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-forget-password">
+    <p class="text-forget">
+      Ingresa tu correo eletrónico y enviaremos un código para recuperar tu contraseña
+    </p>
+
+    <div class="form-email">
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="text" [formControl]="emailFormControlLogin" title="Invalid email address"></ion-input>
+      </ion-item>
+      <mat-error *ngIf="emailFormControlLogin.hasError('email') && !emailFormControlLogin.hasError('required')">
+        Please enter a valid email address.
+    </mat-error>
+    <mat-error *ngIf="emailFormControlLogin.hasError('required')">
+        Email is required.
+    </mat-error>
+      <div class="button-send-email">
+        <ion-button color="cancel" [routerLink]="['/login']" (click)="clear()">Regresar</ion-button>
+        <ion-button (click)="send()">Enviar</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
