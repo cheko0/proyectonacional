@@ -17,7 +17,7 @@ export class LoginPage {
 
   login(){
     console.log(this.email,this.password);
-    this.userService.login({email:"",password:""}).subscribe((access:IAccess)=>{
+    this.userService.login({email:this.email,password:this.password}).subscribe((access:IAccess)=>{
       console.log("ACCESO: ",access);
       if(access.id){
         this.router.navigateByUrl("/home");

@@ -11,7 +11,45 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
-  }
+  },
+  {
+    path: 'tabs',
+    component: HomePage,
+    children: [
+      {
+        path: 'my-projects',
+        children: [
+          {
+            path: '',
+            // loadChildren: () => import('../my-projects/my-projects.module').then(m => m.MyProjectsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'projects',
+        children: [
+          {
+            path: '',
+            // loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'tabs/my-projects',
+        pathMatch: 'full'
+      }
+    ]
+  },
 ];
 
 @NgModule({
