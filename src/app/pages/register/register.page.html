@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="favorite">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/login"></ion-back-button>
+      <ion-back-button defaultHref="/select-rol"></ion-back-button>
     </ion-buttons>
     <ion-title>Registro de usuario</ion-title>
   </ion-toolbar>
@@ -16,19 +16,23 @@
 
     <ion-item>
       <ion-label position="floating">Nombre* </ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Apellidos* </ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label position="floating">Apellido paterno* </ion-label>
+      <ion-input type="text" [(ngModel)]="app"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido materno* </ion-label>
+      <ion-input type="text" [(ngModel)]="apm"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Fecha de nacimiento* </ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY"></ion-datetime>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="date"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Curp* </ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="curp"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="absolute" (click)="selectImage(2)">INE* </ion-label>
@@ -38,20 +42,20 @@
     </div>
     <ion-item>
       <ion-label position="floating">Email* </ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contraseña* </ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Confirmar contraseña* </ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" ></ion-input>
     </ion-item>
 
     <div class="buttons-form">
-      <ion-button color="cancel" [routerLink]="['/login']" (click)="clear()">Cancelar</ion-button>
-      <ion-button expand="block">Aceptar</ion-button>
+      <ion-button color="cancel" [routerLink]="['/select-rol']" (click)="clear()">Cancelar</ion-button>
+      <ion-button expand="block" (click)="sendnudes()">Aceptar</ion-button>
     </div>
   </div>
 </ion-content>

@@ -8,7 +8,7 @@ import { IAccess } from '../models/IAccess';
 })
 export class UserService {
 
-  endPoint = "http://localhost:3000";
+  endPoint = "http://192.168.43.55:3000";
 
   public options = {
     headers: {}
@@ -16,13 +16,9 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  RegisterUser(token, data: RegisterUser) {
-    this.options.headers = new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'Authorization': token
-      })
-    return this.httpClient.post(`${this.endPoint}/user/register`, JSON.stringify(data), this.options);
+  RegisterUser( data: any) {
+    
+    return this.httpClient.post(`${this.endPoint}/user/fondeado/register`, data);
   }
 
   login(payload:{ email:string,password:string}):Observable<any>{
