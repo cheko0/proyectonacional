@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="content-data-profile">
+    <div class="img-profile-user">
+      <ion-avatar class="img">
+        <img src="../../../assets/profile.svg">
+      </ion-avatar>
+    </div>
+    <h5>Datos del usuario:</h5>
+    <div class="content-data-profile">
+      <ion-item>
+        <ion-label position="relative">Nombre: </ion-label>
+        <ion-input [value]="data.name"> </ion-input>
+      </ion-item>
+       <ion-item>
+          <ion-label position="relative">Apellido paterno: </ion-label>
+        <ion-input [value]="data.firstSurname"></ion-input>
+      </ion-item>
+       <ion-item>
+          <ion-label position="relative">Apellido materno: </ion-label>
+        <ion-input [value]="data.secondSurname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="relative">Fecha de nacimiento: </ion-label>
+        <ion-datetime id="dynamicDisabled" displayFormat="DD-MMM-YYYY" disabled [value]="data.date"></ion-datetime>
+      </ion-item>
+
+     <ion-item>
+        <ion-label position="relative">Curp: </ion-label>
+        <ion-input disabled [value]="data.curp"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="relative">email: </ion-label>
+        <ion-input [value]="data.email"></ion-input>
+      </ion-item>
+    </div>
+
+  </div>
+</ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="CreateProject">
+      <ion-icon name="folder-open"></ion-icon>
+      <ion-label>Mis proyectos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="project">
+      <ion-icon name="paper"></ion-icon>
+      <ion-label>Proyectos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" [routerLink]="['/profile']">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
