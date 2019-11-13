@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { UserService } from '../../services/user.service';
 import { LoginPage } from './login.page';
+
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { LoginPage } from './login.page';
       }
     ])
   ],
+  providers:[UserService],
   declarations: [LoginPage]
 })
 export class LoginPageModule { }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import { UserService } from '../../services/user.service';
+import { IAccess } from 'src/app/models/IAccess';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'login.page.html',
@@ -7,6 +9,22 @@ import { Component } from '@angular/core';
 })
 export class LoginPage {
 
-  constructor() {}
+  email:string;
+  password:string;
+
+  constructor(private userService: UserService,private router: Router) {
+  }
+
+  login(){
+    console.log(this.email,this.password);
+    this.userService.login({email:"",password:""}).subscribe((access:IAccess)=>{
+      console.log("ACCESO: ",access);
+      if(access.id){
+        this.router.navigateByUrl("/home");
+      }else{
+        console.log("no se pudo hacer login");
+      }
+    });
+  }
 
 }

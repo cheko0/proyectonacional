@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import RegisterUser from '../models/registerUser';
-
+import { Observable } from 'rxjs';
+import { IAccess } from '../models/IAccess';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  endPoint = "http://localhost:4300";
+  endPoint = "http://localhost:3000";
 
   public options = {
     headers: {}
@@ -23,4 +24,13 @@ export class UserService {
       })
     return this.httpClient.post(`${this.endPoint}/user/register`, JSON.stringify(data), this.options);
   }
+
+  login(payload:{ email:string,password:string}):Observable<any>{
+    if(localStorage.getItem("rol")=="FONDEADO"){
+    return this.httpClient.post<IAccess>(`${this.endPoint}/fondeado/login`,payload);
+    }else {
+      return this.httpClient.post<IAccess>(`${this.endPoint}/fondeador/login`,payload);
+    }
+  }
+
 }
