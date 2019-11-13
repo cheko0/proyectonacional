@@ -8,7 +8,7 @@ import { IAccess } from '../models/IAccess';
 })
 export class UserService {
 
-  endPoint = "http://localhost:3000";
+  endPoint = "http://ec2-3-91-200-109.compute-1.amazonaws.com:3000";
 
   public options = {
     headers: {}
@@ -26,11 +26,9 @@ export class UserService {
   }
 
   login(payload:{ email:string,password:string}):Observable<any>{
-    if(localStorage.getItem("rol")=="FONDEADO"){
-    return this.httpClient.post<IAccess>(`${this.endPoint}/fondeado/login`,payload);
-    }else {
-      return this.httpClient.post<IAccess>(`${this.endPoint}/fondeador/login`,payload);
-    }
+    
+      return this.httpClient.post<IAccess>(`${this.endPoint}/login`,payload);
+    
   }
 
 }
