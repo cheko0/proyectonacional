@@ -12,4 +12,14 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
   }
 
+  data={
+    name: "Juan",
+    firstSurname:"Romero",
+    secondSurname:"Rojas",
+    date: "10-12-2019",
+    curp: "sfdjfdheur",
+    email: "juanchito@gmail.com",
+
+  }
+
 }
