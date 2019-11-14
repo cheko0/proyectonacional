@@ -76,12 +76,7 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-file": {}
-    }
-  }
-  "description": "An Ionic project",
-  "cordova": {
-    "plugins": {
+      "cordova-plugin-file": {},
       "cordova-plugin-telerik-imagepicker": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
