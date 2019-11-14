@@ -5,28 +5,27 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectsPage } from './projects.page';
+import { ProjectDetailPage } from './project-detail.page';
 
-import { MatSelectModule } from '@angular/material/select';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatListModule} from '@angular/material/list';
+import { BuyModalModule } from 'src/app/components/buy-modal/buy-modal.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProjectsPage
+    component: ProjectDetailPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    MatSelectModule,
-    MatFormFieldModule,
     FormsModule,
+    MatListModule,
+    BuyModalModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProjectsPage]
+  declarations: [ProjectDetailPage]
 })
-export class ProjectsPageModule { }
+export class ProjectDetailPageModule {}

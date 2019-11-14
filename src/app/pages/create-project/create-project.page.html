@@ -47,7 +47,8 @@
                   </div>
                 </div>
                 <div>
-                  <button mat-button color="primary" matStepperNext expand="full" [disabled]="!registerFirstForm.valid">
+                  <button mat-raised-button color="primary" matStepperNext style="width: 100%;"
+                    [disabled]="!registerFirstForm.valid">
                     Siguiente
                   </button>
                 </div>
@@ -75,7 +76,7 @@
                   <input matInput type="text" formControlName="email" placeholder="Correo eletronico">
                 </mat-form-field>
                 <mat-form-field style="width: 100%;">
-                  <input matInput type="number" formControlName="phone" placeholder="2711228475" minlength="10"
+                  <input matInput type="number" formControlName="telephone" placeholder="2711228475" minlength="10"
                     maxlength="10">
                 </mat-form-field>
               </div>
@@ -96,53 +97,11 @@
         </form>
       </mat-step>
 
-      <!-- <mat-step [stepControl]="registerThirdForm">
+      <mat-step (stepControl)="registerThirdForm">
         <form [formGroup]="registerThirdForm">
-          <ng-template matStepLabel></ng-template>
-          <mat-form-field style="width: 100%;">
-            <textarea matInput placeholder="Plan de negocio" cols="30" rows="5" type="text"
-              formControlName="bussiness_plan"></textarea>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>
-              Atras
-            </button>
-            <button mat-button matStepperNext>
-              Siguiente
-            </button>
-          </div>
-        </form>
-      </mat-step> -->
-
-      <mat-step (stepControl)="registerFourForm">
-        <form [formGroup]="registerFourForm">
-          <!-- <div formArrayName="fragments">
-            <button (click)="addFragmentForm()">Agregar Keystone</button>
-            <div *ngFor="let fragment of fragments.controls; let i = index;">
-              <div [formGroupName]="i">
-                <mat-form-field style="width: 100%">
-                  <input matInput type="text" placeholder="Keystone...">
-                </mat-form-field>
-
-                <div>
-                  <button (click)="addKeystoneForm(i)">Agregar Fragmento</button>
-                  <div formArrayName="keystones" *ngFor="let keystone of fragments.controls[i].get('keystones').controls; let j=index">
-                  
-                    <div [formGroupName]="j">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento" formControlName="keystone_name">
-                      </mat-form-field>
-                      
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div> -->
-
+          {{registerThirdForm.value | json}}
           <mat-accordion>
-            <mat-expansion-panel *ngFor="let keystone of keystones">
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   {{keystone}}
@@ -153,65 +112,77 @@
               </mat-expansion-panel-header>
               <div>
                 <ion-grid>
-                  <ion-row>
-                    <ion-col size="8">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento">
-                      </mat-form-field>
-                    </ion-col>
-                    <ion-col size="4">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="price">
-                      </mat-form-field>
-                    </ion-col>
+                  <ion-row *ngFor="let fragment of fragments1.controls; let i=index;" formArrayName="fragments1">
+                    <div [formGroupName]="i">
+                      <ion-col size="8">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="Fragmento" formControlName="description">
+                        </mat-form-field>
+                      </ion-col>
+                      <ion-col size="4">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="price" formControlName="price">
+                        </mat-form-field>
+                      </ion-col>
+                    </div>
                   </ion-row>
-                  <ion-row>
-                    <ion-col size="8">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento">
-                      </mat-form-field>
-                    </ion-col>
-                    <ion-col size="4">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="price">
-                      </mat-form-field>
-                    </ion-col>
+                </ion-grid>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{keystone}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  Fragmento y precio
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <ion-grid>
+                  <ion-row *ngFor="let fragment of fragments2.controls; let i=index;" formArrayName="fragments2">
+                    <div [formGroupName]="i">
+                      <ion-col size="8">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="Fragmento" formControlName="description">
+                        </mat-form-field>
+                      </ion-col>
+                      <ion-col size="4">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="price" formControlName="price">
+                        </mat-form-field>
+                      </ion-col>
+                    </div>
                   </ion-row>
-                  <ion-row>
-                    <ion-col size="8">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento">
-                      </mat-form-field>
-                    </ion-col>
-                    <ion-col size="4">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="price">
-                      </mat-form-field>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col size="8">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento">
-                      </mat-form-field>
-                    </ion-col>
-                    <ion-col size="4">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="price">
-                      </mat-form-field>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col size="8">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="Fragmento">
-                      </mat-form-field>
-                    </ion-col>
-                    <ion-col size="4">
-                      <mat-form-field style="width: 100%;">
-                        <input matInput type="text" placeholder="price">
-                      </mat-form-field>
-                    </ion-col>
+                </ion-grid>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{keystone}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  Fragmento y precio
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <ion-grid>
+                  <ion-row *ngFor="let fragment of fragments3.controls; let i=index;" formArrayName="fragments3">
+                    <div [formGroupName]="i">
+                      <ion-col size="8">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="Fragmento" formControlName="description">
+                        </mat-form-field>
+                      </ion-col>
+                      <ion-col size="4">
+                        <mat-form-field style="width: 100%;">
+                          <input matInput type="text" placeholder="price" formControlName="price">
+                        </mat-form-field>
+                      </ion-col>
+                    </div>
                   </ion-row>
                 </ion-grid>
               </div>
@@ -224,7 +195,7 @@
                   <button mat-button matStepperPrevious>
                     Atras
                   </button>
-                  <button mat-button matStepperNext [disabled]="!registerFourForm.valid">
+                  <button mat-button matStepperNext (click)="registerProyect()">
                     Finalizar Registro
                   </button>
                 </ion-col>
