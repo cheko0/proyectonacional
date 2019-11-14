@@ -9,10 +9,6 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomePage
-  },
-  {
     path: 'tabs',
     component: HomePage,
     children: [
@@ -21,7 +17,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            // loadChildren: () => import('../my-projects/my-projects.module').then(m => m.MyProjectsPageModule)
+            loadChildren: () => import('../my-projects/my-projects.module').then(m => m.MyProjectsPageModule)
           }
         ]
       },
@@ -30,7 +26,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            // loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsPageModule)
+            loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsPageModule)
           }
         ]
       },
@@ -50,6 +46,11 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '',
+    redirectTo:'tabs/my-projects',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -61,4 +62,4 @@ const routes: Routes = [
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

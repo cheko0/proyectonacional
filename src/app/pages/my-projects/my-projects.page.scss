@@ -1,0 +1,40 @@
+ion-content {
+  ion-grid {
+    .row-projects {
+      .col-projects {
+        .container-my-projects {
+
+          .no-projects{
+            color: rgb(196, 196, 196);
+            text-align: center;
+          }
+
+          .card-background-page {
+            ion-card {
+              position: relative;
+              text-align: center;
+            }
+
+            .card-title {
+              position: absolute;
+              top: 36%;
+              font-size: 2.3em;
+              width: 100%;
+              font-weight: 500;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .row-actions {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      display: flex;
+    }
+  }
+}

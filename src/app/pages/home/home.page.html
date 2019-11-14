@@ -1,27 +1,20 @@
-<ion-header>
-  <ion-toolbar color="favorite">
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab-bar slot="button">
+    
+    <ion-tab-button tab="my-projects">
+      <ion-icon name="aperture" ios="ios-aperture"></ion-icon>
+      <ion-label>Mis proyectos</ion-label>
+    </ion-tab-button>
 
-<ion-content>
+    <ion-tab-button tab="projects">
+      <ion-icon name="apps" ios="ios-apps"></ion-icon>
+      <ion-label>Proyectos</ion-label>
+    </ion-tab-button>
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="CreateProject">
-        <ion-icon name="folder-open"></ion-icon>
-        <ion-label>Mis proyectos</ion-label>
-      </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="person" ios="ios-person"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
 
-      <ion-tab-button tab="project">
-        <ion-icon name="paper"></ion-icon>
-        <ion-label>Proyectos</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button  [routerLink]="['/profile']">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+  </ion-tab-bar>
+</ion-tabs>
