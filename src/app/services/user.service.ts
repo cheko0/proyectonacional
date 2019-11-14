@@ -29,8 +29,15 @@ export class UserService {
   }
 
   updateProfile(id:any,obj:any){
-    console.log(`${this.endPoint}/user/fondeado/${id}`,obj);
     return this.httpClient.put(`${this.endPoint}/user/fondeado/${id}`,obj);
+  }
+
+  verifyStatus(userId:any){
+    return this.httpClient.get(`${this.endPoint}/user/verified?id=${userId}`);
+  }
+
+  verifyCode(code:any):Observable<any>{
+    return this.httpClient.post(`${this.endPoint}/user/verify`,code);
   }
 
 }

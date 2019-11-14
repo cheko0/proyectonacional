@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule) },
   { path: 'forget-pass', loadChildren: () => import('./pages/forget-pass/forget-pass.module').then(m => m.ForgetPassPageModule) },
   { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule) },
-  { path: 'select-rol', loadChildren: () => import('./pages/select-rol/select-rol.module').then(m => m.SelectRolPageModule) },  { path: 'project-detail', loadChildren: './pages/project-detail/project-detail.module#ProjectDetailPageModule' },
+  { path: 'select-rol', loadChildren: () => import('./pages/select-rol/select-rol.module').then(m => m.SelectRolPageModule) },
+  { path: 'project-detail', loadChildren: './pages/project-detail/project-detail.module#ProjectDetailPageModule' },
   { path: 'fragment-detail', loadChildren: './pages/fragment-detail/fragment-detail.module#FragmentDetailPageModule' }
 
 ];
