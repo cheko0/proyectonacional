@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>project-detail</ion-title>
+    <ion-title>Proyectito2</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,26 +15,84 @@
       <ion-row>
         <ion-col>
           <div *ngFor="let ks of keystones">
-            <div style="display: flex; flex-direction: row; align-items: center;">
-              <ion-icon name="bookmark" style="color: green;"></ion-icon>
-              <h5>{{ks.title}}</h5>
-            </div>
-            <mat-list role="list">
-              <mat-list-item role="listitem" style="width: 100%; height: 50px;">
-                <div style="width: 100%;">
-                  <ion-grid>
-                    <ion-row *ngFor="let fragment of ks.fragments" style="height: 50px;">
-                      <ion-col size="10">
-                        {{fragment.name}}
-                      </ion-col>
-                      <ion-col size="2">
-                        <ion-icon name="logo-usd" (click)="buyFragment(ks.id, fragment)"></ion-icon>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                </div>
-              </mat-list-item>  
-            </mat-list>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <h1>{{ks.projectName}}</h1>
+                  <h3>Descripción general:</h3>
+                  <p style="text-align: justify;">{{ks.description}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <img *ngFor="let photo of ks.photos" src="{{photo.img}}" style="margin: 0 5px;" width="140px"
+                  height="120px">
+              </ion-row>
+              <ion-row>
+                <h3>Plan de negocios:</h3>
+                <p style="text-align: justify">{{ks.businessPlan}}</p>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <h3>Participantes: </h3>
+                  <ul style="width: 100%">
+                    <li *ngFor="let person of ks.team" style="height: 45px; width: 100%;">
+                      <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%">
+                        <p>{{person.name}}</p>
+                        <ion-button style="align-self: flex-end;" (click)="viewMore(person)">Ver más</ion-button>
+                      </div>
+                    </li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div style="display: flex; flex-direction: row; align-items: center;">
+                    <ion-icon name="bookmark" style="color: green; margin: 5px 15px;"></ion-icon>
+                    <h5 style="font-size: 20px;">{{ks.title}}</h5>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem" style="width: 100%; height: 50px;">
+                      <div style="width: 100%;">
+                        <ion-grid style="margin-top: 70px;">
+                          <ion-row *ngFor="let k of ks.keystones" style="height: 50px;">
+                            <!-- <ion-col size="10"> -->
+                            {{k.keystoneName}} ...............
+                            {{k.price | currency}}
+                            <!-- </ion-col> -->
+                            <!-- <ion-col size="2"> -->
+                            <div>
+                              <ion-grid>
+                                <ion-row *ngFor="let f of k.fragments">
+                                  <ion-col size="10">
+                                    {{f.name}}
+                                    {{f.price}}
+                                  </ion-col>
+                                  <ion-col size="2">
+                                    <ion-icon name="logo-usd" (click)="buyFragment(k.idKeystone, f, 'user1')" style="background: blue;
+                                      color: #fff;
+                                      width: 30px;
+                                      height: 30px;
+                                      border-radius: 10px;"></ion-icon>
+                                  </ion-col>
+                                </ion-row>
+                              </ion-grid>
+                            </div>
+
+                            <!-- </ion-col> -->
+                          </ion-row>
+                        </ion-grid>
+                      </div>
+                    </mat-list-item>
+                  </mat-list>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+
           </div>
         </ion-col>
       </ion-row>

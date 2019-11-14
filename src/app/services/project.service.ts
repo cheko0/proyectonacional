@@ -27,4 +27,8 @@ export class ProjectService {
   addProject(project): Observable<any>{
     return this.http.post<any>(`${this.API}/project/register`,  project)
   }
+
+  buyFragment(idKeystone: string, idFragment: string, idUser: string): Observable<any> {
+    return this.http.post(`${this.API}/buy/keystone/${idKeystone}/fragment/${idFragment}`, {idUser: idUser});
+  }
 }
