@@ -1,35 +1,60 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="favorite">
     <ion-title>Mis proyectos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row class="row-projects">
-      <ion-col class="col-projects">
-        <div class="container-my-projects">
-          <div *ngIf="my_projects.length === 0" class="no-projects">
-            <h2>No existen proyectos aún</h2>
+<ion-content *ngIf="verify">
+
+  <div class="formfirst" *ngIf="!verify.verified">
+    <div class="text-verify">
+      <p class="text">
+        Para poder crear proyectos se necesita realizar el registro en el departamento de vinculación
+        en algún tecnológico.
+      </p>
+    </div>
+
+    <div class="content-code">
+      <h5>Ingresa el código proporcionado por vinculación</h5>
+  
+      <ion-item>
+        <ion-label position="floating">Código </ion-label>
+        <ion-input [(ngModel)]="code"> </ion-input>
+      </ion-item>
+      <div class="buttons">
+        <ion-button (click)="verifyCode()" color="primary">Verificar Código</ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="contentcard" *ngIf="verify.verified">
+    <ion-grid>
+      <ion-row class="row-projects">
+        <ion-col class="col-projects">
+          <div class="container-my-projects">
+            <div *ngIf="my_projects.length === 0" class="no-projects">
+              <h2>No existen proyectos aún</h2>
+            </div>
+            <div *ngIf="my_projects.length > 0" class="card-background-page">
+              <ion-card (click)="navigateToKeystones()">
+                <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/card-saopaolo.png">
+                <div class="card-title">Project 1</div>
+              </ion-card>
+            </div>
           </div>
-          <div *ngIf="my_projects.length > 0" class="card-background-page">
-            <ion-card (click)="navigateToKeystones()">
-              <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/card-saopaolo.png">
-              <div class="card-title">Project 1</div>
-            </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-actions">
+        <ion-col class="col-actions">
+          <div class="container-actions">
+            <ion-button (click)="createProject()">
+              <ion-icon name="add" ios="ios-add">
+              </ion-icon>
+            </ion-button>
           </div>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="row-actions">
-      <ion-col class="col-actions">
-        <div class="container-actions">
-          <ion-button (click)="createProject()">
-            <ion-icon name="add" ios="ios-add">
-            </ion-icon>
-          </ion-button>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
 </ion-content>
