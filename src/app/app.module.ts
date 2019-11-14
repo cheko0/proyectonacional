@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { FCM } from '@ionic-native/fcm/ngx'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -24,6 +24,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     HttpClientModule
   ],
   providers: [
+    FCM,
     StatusBar,
     ImagePicker,
     SplashScreen,

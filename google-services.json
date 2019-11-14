@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "384156939113",
+    "firebase_url": "https://nacionalhackatec.firebaseio.com",
+    "project_id": "nacionalhackatec",
+    "storage_bucket": "nacionalhackatec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384156939113:android:988670c20bce7ff36ec3f8",
+        "android_client_info": {
+          "package_name": "hackatec.platform.push"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384156939113-93nlnrruv5fknc7sa6ngc8873flfpb57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb6NJ3GMt9liWawOzYLojAxF3Fh7vQL-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384156939113-93nlnrruv5fknc7sa6ngc8873flfpb57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

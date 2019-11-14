@@ -5,28 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectsPage } from './projects.page';
-
-import { MatSelectModule } from '@angular/material/select';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { FragmentDetailPage } from './fragment-detail.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProjectsPage
+    component: FragmentDetailPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    MatSelectModule,
-    MatFormFieldModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProjectsPage]
+  declarations: [FragmentDetailPage]
 })
-export class ProjectsPageModule { }
+export class FragmentDetailPageModule {}

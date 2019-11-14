@@ -109,7 +109,7 @@ export class RegisterPage implements OnInit {
       name: this.name,
       firstSurname:this.app,
       lastSurname:this.apm,
-      birthday:this.date,
+      dateofbirth:this.date,
       curp: this.curp,
       // selfie:this.base64Image,
       // ine:this.ine,
